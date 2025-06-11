@@ -11,7 +11,7 @@ def example_load():
         with open(model_path, "rb") as f:
             trained_model = load_model(f)
         sp_cor_df, met_cor_df = trained_model.evaluate_featurewise_correlations("cpu")
-        
+        print(type(sp_cor_df))
         sp_cor_df['Species'] = sp_cor_df.feature.str.split("s__").str[-1]
         sp_cor_df.sort_values('rho', ascending=True)
         print(sp_cor_df.head())
