@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-	setup(
+setup(
 	name="microbiome_translator",
 	version="0.1.0",
 	description="Microbiome to Metabolite translator using attention-based PyTorch models",
@@ -15,6 +15,5 @@ from setuptools import setup, find_packages
 		"statsmodels",
 		"scikit-learn"
 	],
-	include_package_data=True,
-
+	include_package_data=True
 )
