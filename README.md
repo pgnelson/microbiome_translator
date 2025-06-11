@@ -19,7 +19,7 @@ model.train_translator(epochs=4000, lr=1e-3, burn_in=False, device = device)<br/
 ![image](https://github.com/user-attachments/assets/5d3e45a0-acf2-45ca-a709-7eb347f4019d)<br/>
 Note that the first 2000 epochs are training the autoencoders, and the last 4000 are training the translation which is a much harder task.
 
-This yealds a mean spearman r squared between predicted and actual values in the test partition:<br/>
+This yeilds a mean spearman r squared between predicted and actual values in the test partition:<br/>
 Among microbial species abundances: mean ρ = 0.3101, mean p-value = 0.019
 Among annotated metabolites: mean ρ = 0.4359, mean p = 0.0099
 
