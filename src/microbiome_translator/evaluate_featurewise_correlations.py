@@ -1,5 +1,7 @@
 from statsmodels.stats.multitest import multipletests
 from scipy.stats import spearmanr
+import numpy as np
+import torch
 
 def evaluate_featurewise_correlations(model, device='cpu'):
 		"""
