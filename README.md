@@ -6,7 +6,7 @@ The main microbiome_translator function takes two pandas dataframes
 
 # Training
 The model was trained on concatinated datasets from Borenstein lab's curated gut microbiome-metabolome project.
-https://github.com/borenstein-lab/microbiome-metabolome-curated-data/wiki
+https://github.com/borenstein-lab/microbiome-metabolome-curated-data/wiki<br/>
 Muller, Efrat, Yadid M. Algavi, and Elhanan Borenstein. "The gut microbiome-metabolome dataset collection: a curated resource for integrative meta-analysis." npj Biofilms and Microbiomes 8.1 (2022): 1-7.
 
 This dataset includes 1,776 samples drawn from 14 different studies. Training the model takes approximately 20 minutes on a local GPU. The model can be trained using the following command:
