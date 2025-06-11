@@ -1,4 +1,6 @@
 import torch
+from pathlib import Path
+
 def load_model(file_or_path):
     if isinstance(file_or_path, (str, Path)):
         checkpoint = torch.load(file_or_path, map_location='cpu')
