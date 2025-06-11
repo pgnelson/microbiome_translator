@@ -11,7 +11,7 @@ import random
 from sklearn.preprocessing import StandardScaler
 from statsmodels.stats.multitest import multipletests
 import sys
-
+from microbiome_translator import PairedMicrobeMetaboliteDataset, MultiHeadAttentionEncoder, FeedForwardDecoder
 torch.set_default_dtype(torch.float64)
 
 
