@@ -28,5 +28,7 @@ def load_model(file_or_path):
     model.losses = checkpoint.get('losses', [])
     model.train_indices = checkpoint['train_indices']
     model.dev_indices = checkpoint['dev_indices']
+    model.all_data.microbe_labels = checkpoint['microbe_labels']
+    model.all_data.metabolite_labels = checkpoint['metabolite_labels']
     model._build_data_loaders()
     return model
