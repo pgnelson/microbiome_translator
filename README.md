@@ -10,12 +10,13 @@ https://github.com/borenstein-lab/microbiome-metabolome-curated-data/wiki<br/>
 Muller, Efrat, Yadid M. Algavi, and Elhanan Borenstein. "The gut microbiome-metabolome dataset collection: a curated resource for integrative meta-analysis." npj Biofilms and Microbiomes 8.1 (2022): 1-7.
 
 This dataset includes 1,776 samples drawn from 14 different studies. Training the model takes approximately 20 minutes on a local GPU. The model can be trained using the following command:
-
-model = MicrobeMetaboliteTranslator(mgx_df, mbx_df, embed_dim=32, num_heads=4, dev_frac = 0.2, batch_size = 16, microbe_min_frac_nonzero = 0.2, metabolite_min_frac_nonzero = 0.2, microbe_min_abundance = 10**-4, metabolite_min_abundance = 10**-4, scale = True, renormalize = True)<br/>
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")<br/>
-model.to(device)<br/>
-model.pretrain_autoencoders(epochs=2000, lr=1e-3, burn_in=False, device=device)<br/>
-model.train_translator(epochs=4000, lr=1e-3, burn_in=False, device = device)<br/>
+```python
+model = MicrobeMetaboliteTranslator(mgx_df, mbx_df, embed_dim=32, num_heads=4, dev_frac = 0.2, batch_size = 16, microbe_min_frac_nonzero = 0.2, metabolite_min_frac_nonzero = 0.2, microbe_min_abundance = 10**-4, metabolite_min_abundance = 10**-4, scale = True, renormalize = True)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+model.pretrain_autoencoders(epochs=2000, lr=1e-3, burn_in=False, device=device)
+model.train_translator(epochs=4000, lr=1e-3, burn_in=False, device = device)
+```
 ![image](https://github.com/user-attachments/assets/5d3e45a0-acf2-45ca-a709-7eb347f4019d)<br/>
 Note that the first 2000 epochs are training the autoencoders, and the last 4000 are training the translation which is a much harder task.
 
