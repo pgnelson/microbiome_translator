@@ -1,5 +1,6 @@
 import torch
 from pathlib import Path
+from microbiome_translator import microbiome_translator
 
 def load_model(file_or_path):
     if isinstance(file_or_path, (str, Path)):
