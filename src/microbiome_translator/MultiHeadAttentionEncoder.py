@@ -1,3 +1,5 @@
+import torch.nn as nn
+
 class MultiHeadAttentionEncoder(nn.Module):
     def __init__(self, input_dim, embed_dim, num_heads):
         super().__init__()
