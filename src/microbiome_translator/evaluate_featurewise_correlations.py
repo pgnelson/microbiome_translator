@@ -2,6 +2,7 @@ from statsmodels.stats.multitest import multipletests
 from scipy.stats import spearmanr
 import numpy as np
 import torch
+import pandas as pd
 
 def evaluate_featurewise_correlations(model, device='cpu'):
 		"""
