@@ -2,7 +2,7 @@ import torch
 import importlib.resources as pkg_resources
 import microbiome_translator
 import microbiome_translator.resources
-from microbiome_translator import load_model, trained_model
+from microbiome_translator import load_model
 import pandas as pd
 
 def example_load():
