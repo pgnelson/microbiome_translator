@@ -8,7 +8,8 @@ import pandas as pd
 def example_load():
     # Get the path to the bundled model
     with pkg_resources.path(microbiome_translator.resources, "trained_microbiome_translator_borenstein.pth") as model_path:
-        trained_model = load_model(model_path)
+        with open(model_path, "rb") as f:
+            trained_model = load_model(f)
         sp_cor_df, met_cor_df = trained_model.evaluate_featurewise_correlations("cpu")
         
         sp_cor_df['Species'] = sp_cor_df.feature.str.split("s__").str[-1]
