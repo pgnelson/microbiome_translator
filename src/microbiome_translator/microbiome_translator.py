@@ -277,8 +277,8 @@ class microbiome_translator(nn.Module):
         checkpoint = {
             'model_state_dict': self.state_dict(),
             'model_args': {
-                'microbe_data': self.microbe_data,
-                'metabolite_data': self.metabolite_data,
+                'microbe_data': self.all_data.microbes,
+                'metabolite_data': self.all_data.metabolites,
                 'embed_dim': self.embed_dim,
                 'num_heads': self.num_heads,
                 'batch_size': self.batch_size,
