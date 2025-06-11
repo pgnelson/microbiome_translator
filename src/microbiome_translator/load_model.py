@@ -1,6 +1,9 @@
 import torch
-def load_model(filepath):
-    checkpoint = torch.load(filepath, weights_only = False)
+def load_model(file_or_path):
+    if isinstance(file_or_path, (str, Path)):
+        checkpoint = torch.load(file_or_path, map_location='cpu')
+    else:
+        checkpoint = torch.load(file_or_path, map_location='cpu')
     args = checkpoint['model_args']
     model = MicrobeMetaboliteTranslator(
         args['microbe_data'],
