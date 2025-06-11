@@ -3,9 +3,9 @@ from pathlib import Path
 
 def load_model(file_or_path):
     if isinstance(file_or_path, (str, Path)):
-        checkpoint = torch.load(file_or_path, map_location='cpu')
+        checkpoint = torch.load(file_or_path, map_location='cpu',weights_only=True)
     else:
-        checkpoint = torch.load(file_or_path, map_location='cpu')
+        checkpoint = torch.load(file_or_path, map_location='cpu',weights_only=True)
     args = checkpoint['model_args']
     model = MicrobeMetaboliteTranslator(
         args['microbe_data'],
