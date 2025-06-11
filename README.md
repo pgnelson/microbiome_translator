@@ -2,7 +2,7 @@
 An encoder to translate between paired metagenomic and metabolomic microbiome data
 
 Microbiome Translator is a Python package for constructing attention-based encoder–decoder models to explore relationships between microbial metagenomic and metabolomic data. It provides modular components for training unsupervised embeddings of microbial and metabolite profiles using multiheaded attention, followed by unsupervised translation between the two domains. The architecture supports autoencoding pretraining, symmetric translation, and evaluation using per-feature Spearman correlations with multiple testing correction. Designed for exploratory multi-omics analyses, this package offers a flexible framework for investigating microbe–metabolite associations without assuming predefined taxonomic or pathway structure.<br/>
-The main microbiome_translator function takes two pandas dataframes
+The main microbiome_translator class takes two pandas dataframes. It applies some preprocessing to each dataset: replacing NAs with zeros, a abundance threshold and prevalence filter, and scaling and centering. Any other normalization or batch correction should be done prior.
 
 # Training
 The model was trained on concatinated datasets from Borenstein lab's curated gut microbiome-metabolome project.
