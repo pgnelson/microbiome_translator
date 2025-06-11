@@ -286,6 +286,8 @@ class microbiome_translator(nn.Module):
             },
             'losses': self.losses,  # save the loss history
             'train_indices': self.train_indices,
-            'dev_indices': self.dev_indices
+            'dev_indices': self.dev_indices,
+            'microbe_labels': self.all_data.microbe_labels,
+            'metabolite_labels': self.all_data.metabolite_labels,
         }
         torch.save(checkpoint, filepath)
