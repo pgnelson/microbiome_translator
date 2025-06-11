@@ -11,7 +11,7 @@ Muller, Efrat, Yadid M. Algavi, and Elhanan Borenstein. "The gut microbiome-meta
 
 This dataset includes 1,776 samples drawn from 14 different studies. Training the model takes approximately one hour on a local GPU, though the number of training epochs could be reduced with minimal impact on performance. The model can be trained using the following command:
 
-model = MicrobeMetaboliteTranslator(mgx_df,mbx_df, <br/>embed_dim=32,<br/>num_heads=4,<br/>dev_frac = 0.2,<br/>batch_size = 16,<br/>microbe_min_frac_nonzero = 0.2,<br/>metabolite_min_frac_nonzero = 0.2,<br/> microbe_min_abundance = 10**-4,<br/>metabolite_min_abundance = 10**-4,<br/>scale = True,<br/>renormalize = True)<br/>
+model = MicrobeMetaboliteTranslator(mgx_df, mbx_df, embed_dim=16, num_heads=4, dev_frac = 0.2, batch_size = 16, microbe_min_frac_nonzero = 0.2, metabolite_min_frac_nonzero = 0.2, microbe_min_abundance = 10**-4, metabolite_min_abundance = 10**-4, scale = True, renormalize = True)<br/>
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")<br/>
 model.to(device)<br/>
 model.pretrain_autoencoders(epochs=10000, lr=1e-3, burn_in=False, device=device)<br/>
