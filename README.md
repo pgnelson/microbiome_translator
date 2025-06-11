@@ -5,7 +5,7 @@ Microbiome Translator is a Python package for constructing attention-based encod
 The main microbiome_translator function takes two pandas dataframes
 
 # Training
-The model was trained on concatinatinated datasets from Borenstein lab's curated gut microbiome-metabolome project.
+The model was trained on concatinated datasets from Borenstein lab's curated gut microbiome-metabolome project.
 https://github.com/borenstein-lab/microbiome-metabolome-curated-data/wiki
 Muller, Efrat, Yadid M. Algavi, and Elhanan Borenstein. "The gut microbiome-metabolome dataset collection: a curated resource for integrative meta-analysis." npj Biofilms and Microbiomes 8.1 (2022): 1-7.
 
