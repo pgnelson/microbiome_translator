@@ -1,28 +1,29 @@
-# microbiome_translator
+# Microbiome Translator
 An encoder to translate between paired metagenomic and metabolomic microbiome data
 
 Microbiome Translator is a Python package for constructing attention-based encoder–decoder models to explore relationships between microbial metagenomic and metabolomic data. It provides modular components for training unsupervised embeddings of microbial and metabolite profiles using multiheaded attention, followed by unsupervised translation between the two domains. The architecture supports autoencoding pretraining, symmetric translation, and evaluation using per-feature Spearman correlations with multiple testing correction. Designed for exploratory multi-omics analyses, this package offers a flexible framework for investigating microbe–metabolite associations without assuming predefined taxonomic or pathway structure.<br/>
-The main microbiome_translator class takes two pandas dataframes. It applies some preprocessing to each dataset: replacing NAs with zeros, a abundance threshold and prevalence filter, and scaling and centering. Any other normalization or batch correction should be done prior.
+
+The main microbiome_translator class takes two pandas DataFrames as input. It applies basic preprocessing to each dataset: replacing NAs with zeros, applying an abundance threshold and prevalence filter, and scaling and centering the features. Any additional normalization or batch correction should be done beforehand. The intended workflow is to first train the autoencoders, which reduce the dimensionality of each dataset from the number of features to embed_dim. In this step loss is based on how well the model can reconstruct the original data from the reduced embedding. Next, the translators are trained. In this phase, the loss is determined by how well the model can reconstruct the microbiome from the metabolome, and vice versa. This translation task is more challenging than autoencoding, so the loss is expected to be somewhat higher. To prevent overfitting, I tuned the model architecture by decreasing the size of the decoder layers to 16 units and adding dropout layers between each decoder layer. Larger datasets may support larger architectures, but for this dataset, with fewer than 2,000 samples, this setup worked well.
 
 # Training
-The model was trained on concatinated datasets from Borenstein lab's curated gut microbiome-metabolome project.
+The model was trained on concatinated datasets from the Borenstein lab's curated gut microbiome-metabolome project.
 https://github.com/borenstein-lab/microbiome-metabolome-curated-data/wiki<br/>
 Muller, Efrat, Yadid M. Algavi, and Elhanan Borenstein. "The gut microbiome-metabolome dataset collection: a curated resource for integrative meta-analysis." npj Biofilms and Microbiomes 8.1 (2022): 1-7.
 
 This dataset includes 1,776 samples drawn from 14 different studies. Training the model takes approximately 20 minutes on a local GPU. The model can be trained using the following command:
 ```python
-model = MicrobeMetaboliteTranslator(mgx_df, mbx_df, embed_dim=32, num_heads=4, dev_frac = 0.2, batch_size = 16, microbe_min_frac_nonzero = 0.2, metabolite_min_frac_nonzero = 0.2, microbe_min_abundance = 10**-4, metabolite_min_abundance = 10**-4, scale = True, renormalize = True)
+model = microbiome_translator(microbiome_df, metabolome_df, embed_dim=32, num_heads=4, dev_frac = 0.2, batch_size = 16, microbe_min_frac_nonzero = 0.2, metabolite_min_frac_nonzero = 0.2, microbe_min_abundance = 10**-4, metabolite_min_abundance = 10**-4, scale = True, renormalize = True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
-model.pretrain_autoencoders(epochs=2000, lr=1e-3, burn_in=False, device=device)
-model.train_translator(epochs=4000, lr=1e-3, burn_in=False, device = device)
+model.pretrain_autoencoders(epochs=2000, lr=1e-4, burn_in=False, device=device)
+model.train_translator(epochs=4000, lr=1e-4, burn_in=False, device = device)
 ```
 ![image](https://github.com/user-attachments/assets/5d3e45a0-acf2-45ca-a709-7eb347f4019d)<br/>
 Note that the first 2000 epochs are training the autoencoders, and the last 4000 are training the translation which is a much harder task.
 
 This yeilds a mean spearman r squared between predicted and actual values in the test partition:<br/>
-Among microbial species abundances: mean ρ = 0.1794, mean p-value = 0.079<br/>
-Among annotated metabolites: mean ρ = 0.3505, mean p = 0.0072<br/>
+Among microbial species abundances: mean ρ = 0.1881, mean p-value = 0.1<br/>
+Among annotated metabolites: mean ρ = 0.3384, mean p = 0.021<br/>
 
 Top 5 species best predicted by metabolites:<br/>
 | Species |	rho	| pval | qval |
