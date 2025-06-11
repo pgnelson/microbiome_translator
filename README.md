@@ -32,6 +32,7 @@ Top 5 species best predicted by metabolites:<br/>
 | Anaeromassilibacillus stercoravium | 0.141075	| 9.292100e-08	| 1.441878e-07 |
 | Butyribacter intestini	| 0.075199	| 4.564957e-03 |	5.351703e-03 |
 
+And the top 5 metabolites best predicted by species:<br/>
 |	Metabolite | rho | pval |	qval |
 | ---- | ----- | ----- | ----- |
 | 12.13-diHOME |	0.492715 | 8.812994e-88 | 7.709297e-87 |
@@ -40,7 +41,7 @@ Top 5 species best predicted by metabolites:<br/>
 | mandelate | 0.499328 | 1.812944e-90 | 2.088662e-89 |
 | 3-hydroxyoctanoate | 0.503181 | 4.629811e-92 | 6.400714e-91 |
 
-Hydocinnamate is known to correlate with gut microbial diversity (Menni et al. 2020) and mandelate is metabolised by a variety of microbes (Want et al. 2022), so those are promising indicators that model is finding real signal.
+This model finds that 25% of the variance of 12,13-diHOME is explained by species composition. 12,13-diHOME is known to microbially derived and has been linked to inflammation and asthma in infants (Levan et al. 2019). Additionally, hydocinnamate is known to correlate with gut microbial diversity (Menni et al. 2020) and mandelate is metabolised by a variety of microbes (Want et al. 2022); promising indicators that model is finding real biological signal. <br/>
 
 # Datasets used:<br/>
 Erawijantari et al. Influence of gastrectomy for gastric cancer treatment on faecal microbiome and metabolome profiles. Gut. 2020 Aug;69(8):1404-1415.<br/>
@@ -59,5 +60,6 @@ Wandro, Stephen, et al. "The microbiome and metabolome of preterm infant stool a
 Wang, Xifan, et al. "Aberrant gut microbiota alters host metabolome and impacts renal failure in humans and rodents." Gut 69.12 (2020): 2131-2142.<br/>
 
 # Citations:<br/>
+Levan, S.R., Stamnes, K.A., Lin, D.L., Panzer, A.R., Fukui, E., McCauley, K., Fujimura, K.E., McKean, M., Ownby, D.R., Zoratti, E.M. and Boushey, H.A., 2019. Elevated faecal 12, 13-diHOME concentration in neonates at high risk for asthma is produced by gut bacteria and impedes immune tolerance. Nature microbiology, 4(11), pp.1851-1861.<br/>
 Menni C, Zhu J, Le Roy CI, Mompeo O, Young K, Rebholz CM, Selvin E, North KE, Mohney RP, Bell JT, Boerwinkle E, Spector TD, Mangino M, Yu B, Valdes AM. Serum metabolites reflecting gut microbiome alpha diversity predict type 2 diabetes. Gut Microbes. 2020 Nov 1;11(6):1632-1642. doi: 10.1080/19490976.2020.1778261. Epub 2020 Jun 24. PMID: 32576065; PMCID: PMC7524143.<br/>
 Wang, Q., Geng, S., Wang, L., Wen, Z., Sun, X. and Huang, H., 2022. Bacterial mandelic acid degradation pathway and its application in biotechnology. Journal of Applied Microbiology, 133(2), pp.273-286.
