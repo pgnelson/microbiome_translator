@@ -1,3 +1,4 @@
+import torch
 def load_model(filepath):
     checkpoint = torch.load(filepath, weights_only = False)
     args = checkpoint['model_args']
