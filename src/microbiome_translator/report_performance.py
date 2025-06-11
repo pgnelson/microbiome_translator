@@ -1,3 +1,6 @@
+from scipy.stats import spearmanr
+from statsmodels.stats.multitest import multipletests
+
 def report_performance(label, epoch, pred_microbe, true_microbe, pred_metabolite, true_metabolite):
     def get_spearman(pred, true):
         pred = pred.detach().cpu().numpy()
