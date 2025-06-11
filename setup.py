@@ -13,6 +13,6 @@ setup(
         "numpy",
         "scipy",
         "statsmodels",
-		"scikit-learn"
+	"scikit-learn"
     ],
 )
