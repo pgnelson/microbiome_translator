@@ -7,7 +7,7 @@ def load_model(file_or_path):
     else:
         checkpoint = torch.load(file_or_path, map_location='cpu',weights_only=False)
     args = checkpoint['model_args']
-    model = MicrobeMetaboliteTranslator(
+    model = microbiome_translator(
         args['microbe_data'],
         args['metabolite_data'],
         embed_dim = args['embed_dim'],
