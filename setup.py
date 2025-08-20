@@ -4,7 +4,7 @@ setup(
 	name="microbiome_translator",
 	version="0.1.1",
 	description="Microbiome to Metabolite translator using attention-based PyTorch models",
-	author="Your Name",
+	author="Paul Nelson",
 	packages=find_packages(where="src"),
 	package_dir={"": "src"},
 	install_requires=[
@@ -20,3 +20,4 @@ setup(
 		"console_scripts": ["load_microbiome_model = examples.example_load_model:example_load",],
 	}
 )
+
