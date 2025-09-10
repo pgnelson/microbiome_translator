@@ -43,7 +43,7 @@ And the top 5 metabolites best predicted by species:<br/>
 | mandelate | 0.499328 | 1.812944e-90 | 2.088662e-89 |
 | 3-hydroxyoctanoate | 0.503181 | 4.629811e-92 | 6.400714e-91 |
 
-This model finds that 25% of the variance of 12,13-diHOME is explained by species composition. 12,13-diHOME is known to microbially derived and has been linked to inflammation and asthma in infants (Levan et al. 2019). Additionally, hydocinnamate is known to correlate with gut microbial diversity (Menni et al. 2020) and mandelate is metabolised by a variety of microbes (Want et al. 2022); promising indicators that model is finding real biological signal. <br/>
+This model finds that 25% of the variance of 12,13-diHOME is explained by species composition. 12,13-diHOME is known to be microbially derived and has been linked to inflammation and asthma in infants (Levan et al. 2019). Additionally, hydocinnamate is known to correlate with gut microbial diversity (Menni et al. 2020) and mandelate is metabolised by a variety of microbes (Want et al. 2022); promising indicators that model is finding real biological signal. <br/>
 
 # Datasets used:<br/>
 Erawijantari et al. Influence of gastrectomy for gastric cancer treatment on faecal microbiome and metabolome profiles. Gut. 2020 Aug;69(8):1404-1415.<br/>
