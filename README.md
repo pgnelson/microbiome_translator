@@ -24,7 +24,7 @@ Note that the first 2000 epochs are training the autoencoders, and the last 4000
 This yeilds a mean spearman r squared between predicted and actual values in the test partition:<br/>
 Among microbial species abundances: mean ρ = 0.1881, mean p-value = 0.1<br/>
 Among annotated metabolites: mean ρ = 0.3384, mean p = 0.021<br/>
-
+While these values may seem low, they are the mean correlation between true and predicted values per feature. Since many metabolites in the human gut are not derived from microbes, it is not surpirisng to see a relatively low ρ when averages across all species/metabolites. A better indicator of model perforance would be to examine individual features.<br/>
 Top 5 species best predicted by metabolites:<br/>
 | Species |	rho	| pval | qval |
 | ---- | ----- | ----- | ----- |
